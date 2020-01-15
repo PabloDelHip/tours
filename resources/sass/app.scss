@@ -1,8 +1,130 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
-
+@import url('https://fonts.googleapis.com/css?family=Hind+Siliguri:300,400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Catamaran:100,300,400,500,600,700,800,900&display=swap');
 // Variables
 @import 'variables';
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+//@import '~bootstrap/scss/bootstrap';
+
+header
+{
+    background-color: $azul;
+    position: relative;
+    padding: 5px;
+    ul
+    {
+        margin-bottom: 0;
+        a
+        {
+            color: #fff;
+            font-family: $fuente-secundaria;
+            font-size: 13px;
+            font-weight: 300;
+            transition: color 0.3s ease-in-out;
+            &:hover
+            {
+                color: rgba(255,255,255,0.75);
+            }
+        }
+    }
+}
+
+a:link
+{
+    text-decoration:none;
+}
+
+.contenedor-menu
+{
+    -webkit-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+}
+
+nav.navbar
+{
+    height: 80px;
+}
+
+.menu
+{
+    ul
+    {
+        a
+        {
+            color: #000 !important;
+            font-family: $fuente-principal;
+            font-weight: 700;
+            transition: color 0.3s ease-in-out;
+            &:hover
+            {
+                color: $azul !important;
+            }
+        }
+    }
+}
+
+div.hero
+{ 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover !important;
+    div.container
+    {
+        height: 500px;
+    }
+
+    h3.texto-principal
+    {
+        font-size: 4em;
+        font-family: $fuente-principal;
+        font-weight: 600;
+        color: #fff;
+    }
+
+    h3.texto-secundario
+    {
+        font-size: 1.5em;
+        color: #fff;
+        font-weight: 300;
+    }
+}
+
+div.top-tours
+{
+    h1
+    {
+        font-family: $fuente-principal;
+        font-size: 2em;
+        font-weight: 200;
+    }
+    h2
+    {
+        font-family: $fuente-principal;
+        font-size: 1.1em;
+        font-weight: 400;
+        color: $gris;
+    }
+}
+
+div.tmb-tours-medianos
+{
+    div.fondo
+    {
+        width: 100%;
+        height: 273px;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover !important;
+        border-radius: 4px;
+        -webkit-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+    }
+}
+
+
