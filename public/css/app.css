@@ -79,13 +79,21 @@ h3.texto-secundario {
   color: #e4e4e4;
 }
 
+div.tmb-tours-medianos div.curva {
+  border-radius: 4px !important;
+}
+
+div.tmb-tours-medianos div.categorias {
+  height: 136px !important;
+}
+
 div.tmb-tours-medianos div.fondo {
   width: 100%;
   height: 273px;
   border-radius: 4px;
-  background-color: red;
   box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.75);
   overflow: hidden;
+  border-radius: 8px 8px 0px 0px;
 }
 
 div.tmb-tours-medianos div.fondo > img {
@@ -141,5 +149,86 @@ div.fondo-populares h3.titulo {
 
 img.ico-top-categorias {
   width: 32px !important;
+}
+
+.slider .fondo {
+  height: 185px !important;
+}
+
+.tours-populares .ico-tours-populares {
+  z-index: 150;
+  padding: 12px 31px;
+  margin-bottom: -55px;
+}
+
+.tours-populares .ico-tours-populares span {
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 1.1em;
+  background-color: #24C358;
+  color: #fff;
+  font-weight: 400;
+  padding: 3px 12px;
+  border-radius: 6px;
+}
+
+div.texto-tours-populares {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 0px 0px 8px 8px;
+}
+
+div.texto-tours-populares p {
+  padding: 0;
+  margin: 0;
+  font-size: 0.9em;
+  color: #75706b;
+}
+
+div.texto-tours-populares div div {
+  font-size: 0.9em;
+  font-family: "Hind Siliguri", sans-serif;
+}
+
+div.texto-tours-populares img {
+  width: 16px;
+  height: 16px;
+}
+
+.promocion {
+  font-family: "Catamaran", sans-serif;
+}
+
+.promocion h3 {
+  font-size: 1.7em;
+  font-weight: 200;
+}
+
+.promocion .tour {
+  font-size: 2.2em;
+  font-weight: 400;
+  color: #fff;
+}
+
+.promocion .descripcion {
+  color: #fff;
+  margin-bottom: 45px;
+}
+
+.promocion a {
+  background-color: #24C358;
+  padding: 10px;
+  color: #fff;
+  border-radius: 4px;
+  font-family: "Hind Siliguri", sans-serif;
+  -webkit-transition: color 0.5s ease-in-out;
+  transition: color 0.5s ease-in-out;
+}
+
+.promocion a:hover {
+  background-color: #1196DD;
+}
+
+footer {
+  background-color: #20212D;
 }
 
