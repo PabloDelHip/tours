@@ -28,7 +28,7 @@ header
             {
                 color: rgba(255,255,255,0.75);
             }
-        }
+        } 
     }
 }
 
@@ -306,6 +306,54 @@ div.texto-tours-populares
 footer
 {
     background-color: #20212D;
+    .datos-footer
+    {
+        padding: 45px;
+    }
+
+    div.primer-contenedor
+    {
+        border-right: 1px solid #fff;
+    }
+    p
+    {
+        color: #fff;
+        font-size: .9em;
+        font-family: $fuente-secundaria;
+        margin: 0;
+    }
+    h4.titulo-footer
+    {
+        color: #fff;
+        font-family: $fuente-principal;
+        margin-bottom: 18px;
+    }
+    ul
+    {
+        color: #fff;
+        font-family: $fuente-secundaria;
+        list-style: none;
+        padding: 0;
+        li
+        {
+            margin-bottom: 10px;
+        }
+    }
+
+    .copy
+    {
+        background-color: #131420;
+
+        div
+        {
+            padding: 5px;
+
+            p
+            {
+                font-size: .8em;
+            }
+        }
+    }
 }
 
 

@@ -123,10 +123,28 @@
         {{-- Footer --}}
         <footer>
             <div class="container">
-                <div class="row">
-                    <div class="col-4">
+                <div class="row datos-footer">
+                    <div class="col-4 primer-contenedor">
                         <img src="{{ url('/img/logo.png') }}" alt="Logo cancun">
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis magni nam rerum corporis nesciunt quidem distinctio ratione aspernatur praesentium officia qui omnis quos ullam, sapiente pariatur. Atque aut soluta vel.</p>
                     </div>
+
+                    <div class="col-4">
+                        <h4 class="titulo-footer">Contactanos</h4>
+                        <ul>
+                            <li>
+                                <i class="fas fa-envelope"></i> &nbsp; contacto@tours.com</a> 
+                            </li>
+                            <li>
+                                <i class="fas fa-phone-alt"></i> &nbsp; 99-88-77-66-55</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row copy">
+                <div class="col-12 text-center">
+                    <p style="color: #fff;"> © 2019. Todos los Derechos Reservados <b>Agencia de tours</b>.</p>
                 </div>
             </div>
         </footer>

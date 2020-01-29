@@ -232,3 +232,47 @@ footer {
   background-color: #20212D;
 }
 
+footer .datos-footer {
+  padding: 45px;
+}
+
+footer div.primer-contenedor {
+  border-right: 1px solid #fff;
+}
+
+footer p {
+  color: #fff;
+  font-size: 0.9em;
+  font-family: "Hind Siliguri", sans-serif;
+  margin: 0;
+}
+
+footer h4.titulo-footer {
+  color: #fff;
+  font-family: "Catamaran", sans-serif;
+  margin-bottom: 18px;
+}
+
+footer ul {
+  color: #fff;
+  font-family: "Hind Siliguri", sans-serif;
+  list-style: none;
+  padding: 0;
+}
+
+footer ul li {
+  margin-bottom: 10px;
+}
+
+footer .copy {
+  background-color: #131420;
+}
+
+footer .copy div {
+  padding: 5px;
+}
+
+footer .copy div p {
+  font-size: 0.8em;
+}
+

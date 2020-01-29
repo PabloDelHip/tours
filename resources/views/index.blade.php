@@ -37,7 +37,7 @@
                         <a class="categoria" href="#">Arqueologico</a>
                         <a class="tour" href="#">Coba</a>
                     </div>
-                </div>
+                </div> 
             </div>
 
             <div class="col-3 tmb-tours-medianos">
