@@ -13,6 +13,11 @@ class Controller extends BaseController
 
     public function index()
     {
-        return view('index');
+        return view('sitio.index');
+    }
+
+    public function categorias()
+    {
+        return view('sitio.tours');
     }
 }

@@ -8,7 +8,10 @@
 // Bootstrap
 //@import '~bootstrap/scss/bootstrap';
 
-
+body 
+{
+    background-color: #F7F7F7 !important;
+}
 header
 {
     background-color: $azul;
