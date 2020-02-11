@@ -99,4 +99,9 @@ class ToursController extends Controller
         $tours = $categoria_tours->tours;
         return $tours;
     }
+
+    public function verInformacionTour($url)
+    {
+        return view('sitio.info_tour');
+    }
 }

@@ -306,6 +306,30 @@ div.texto-tours-populares
     }
 }
 
+.contenedor-info-tour
+{
+    background-color: #fff;
+    a.active
+    {
+        background-color: #1196DD !important;
+    }
+}
+
+a.efecto-principal
+{
+    background-color: #24C358;
+    padding: 10px;
+    margin: 6px;
+    color: #fff;
+    border-radius: 4px;
+    font-family: $fuente-secundaria;
+    transition: color 0.5s ease-in-out;
+    &:hover
+    {
+        background-color: #1196DD;
+    }
+}
+
 footer
 {
     background-color: #20212D;
@@ -357,6 +381,17 @@ footer
             }
         }
     }
+}
+
+// EFECTOS VUE
+.fade-enter-active, .fade-leave-active
+{
+    transition: opacity .3s
+}
+
+.fade-enter, .fade-leave-to
+{
+    opacity: 0
 }
 
 

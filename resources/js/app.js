@@ -21,6 +21,7 @@ window.Vue = require('vue');
 
 Vue.component('example-component',require('./components/ExampleComponent.vue').default);
 Vue.component('tours-component',require('./components/ToursComponent.vue').default);
+Vue.component('infotour-component',require('./components/InfoTourComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

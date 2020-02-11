@@ -21,4 +21,6 @@ Route::get('{categoria?}/tour-actividades', ['as' => 'infoCategorias', 'uses' =>
 //rutas vue
 // tours
 Route::get('/tours/{categoria?}', ['as' => 'categoriaTour', 'uses' => 'ToursController@categoriaTour']);
+Route::get('/informacion/{tours?}', ['as' => 'InfomarcionTour', 'uses' => 'ToursController@verInformacionTour']);
+// Route::resource('tours', 'ToursController');
 // Route::resource('tours', 'ToursController');
