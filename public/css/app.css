@@ -240,7 +240,8 @@ div.texto-tours-populares img {
   background-color: #1196DD !important;
 }
 
-a.efecto-principal {
+a.efecto-principal,
+a.efecto-secundario {
   background-color: #24C358;
   padding: 10px;
   margin: 6px;
@@ -251,8 +252,49 @@ a.efecto-principal {
   transition: color 0.5s ease-in-out;
 }
 
-a.efecto-principal:hover {
+a.efecto-principal:hover,
+a.efecto-secundario:hover {
   background-color: #1196DD;
+}
+
+a.efecto-secundario {
+  background-color: #1196DD !important;
+}
+
+a.efecto-secundario:hover {
+  background-color: #24C358 !important;
+}
+
+img.tmb-tours {
+  border-radius: 7px;
+}
+
+.detalles-tour {
+  font-family: "Hind Siliguri", sans-serif;
+  padding: 20px;
+}
+
+.detalles-tour span.titulo-detalle {
+  display: block;
+  text-align: center;
+  font-size: 0.9em;
+}
+
+.detalles-tour .list-group-item {
+  background-color: transparent;
+  border-top: 0px !important;
+}
+
+.detalles-tour .list-group-item span.primer-texto {
+  color: #000;
+}
+
+.detalles-tour .list-group-item span.segundo-texto {
+  color: #75706b;
+}
+
+.detalles-tour .list-group-item span.segundo-texto.precio {
+  color: #24C358;
 }
 
 footer {

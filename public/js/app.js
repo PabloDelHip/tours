@@ -1994,21 +1994,72 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     VueEasyLightbox: vue_easy_lightbox__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
+  props: ['url_tour'],
   data: function data() {
     return {
       ver: 1,
-      arrayTours: [],
-      imgs: '',
+      array_info_tours: [],
+      array_img_tours: [],
+      imgs: [],
       // Img Url , string or Array
       visible: false,
-      index: 0 // default   
-
+      index: 0,
+      // default
+      _url_tour: this.url_tour
     };
   },
   methods: {
@@ -2023,18 +2074,29 @@ __webpack_require__.r(__webpack_exports__);
       contenedor_uno.classList.remove("active");
       contenedor_dos.classList.remove("active");
       contenedor_tres.classList.remove("active");
-      contenedor.classList.add('active'); // if (contenedor.classList.contains("efecto-principal")) {
-      //         contenedor.classList.remove("active");
-      //     }
-      // if(event.target.className=='efecto-principal active')
-      // console.log(event.target.id);
+      contenedor.classList.add('active');
     },
-    showSingle: function showSingle() {
-      this.imgs = 'http://via.placeholder.com/350x150';
-      this.show();
+    getInfoTours: function getInfoTours() {
+      var me = this;
+      var url = '/tours/public/info-tour/' + this.url_tour;
+      console.log(url);
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(url).then(function (response) {
+        me.array_info_tours = response.data;
+        me.array_img_tours = response.data.imagetour;
+        var imagenes = response.data.imagetour;
+        imagenes.forEach(function (imagen) {
+          // console.log(element.image);
+          // this.seleccionados.push(asiento);
+          me.imgs.push('../img/tours/' + imagen.image);
+        });
+        console.log(me.imgs);
+      })["catch"](function (error) {
+        // handle error
+        console.log(error);
+      });
     },
     showMultiple: function showMultiple() {
-      this.imgs = ['http://via.placeholder.com/350x150', 'http://via.placeholder.com/350x150'];
+      // this.imgs = this.array_img_tours;
       this.index = 0; // index of imgList
 
       this.show();
@@ -2046,7 +2108,9 @@ __webpack_require__.r(__webpack_exports__);
       this.visible = false;
     }
   },
-  mounted: function mounted() {}
+  mounted: function mounted() {
+    this.getInfoTours();
+  }
 });
 
 /***/ }),
@@ -2124,7 +2188,6 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     ordenarNombre: function ordenarNombre() {
-      alert('Hola');
       this.arrayTours = [];
     }
   },
@@ -37650,19 +37713,23 @@ var render = function() {
                     ? _c("div", { key: 1 }, [
                         _c("h3", [_vm._v("INFORMACIÓN IMPORTANTE DEL TOUR")]),
                         _vm._v(" "),
-                        _c("p", [
-                          _vm._v(
-                            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae pariatur doloremque nisi natus magni rerum? Modi blanditiis quaerat esse aperiam voluptas ex corrupti repellat. Perspiciatis nostrum sapiente tempore similique eos."
-                          )
-                        ])
+                        _c("span", {
+                          domProps: {
+                            innerHTML: _vm._s(_vm.array_info_tours.description)
+                          }
+                        })
                       ])
                     : _vm._e(),
                   _vm._v(" "),
                   _vm.ver == 2
                     ? _c("div", { key: 2 }, [
-                        _vm._v(
-                          "\n                            Soy dos\n                        "
-                        )
+                        _c("span", {
+                          domProps: {
+                            innerHTML: _vm._s(
+                              _vm.array_info_tours.description_information
+                            )
+                          }
+                        })
                       ])
                     : _vm._e(),
                   _vm._v(" "),
@@ -37671,13 +37738,40 @@ var render = function() {
                         "div",
                         { key: 3 },
                         [
-                          _c("button", { on: { click: _vm.showSingle } }, [
-                            _vm._v("Show single picture.")
-                          ]),
-                          _vm._v(" "),
-                          _c("button", { on: { click: _vm.showMultiple } }, [
-                            _vm._v("Show a group of pictures.")
-                          ]),
+                          _c(
+                            "div",
+                            { staticClass: "row" },
+                            _vm._l(_vm.array_img_tours, function(image_tour) {
+                              return _c(
+                                "div",
+                                { key: image_tour.id, staticClass: "col-4" },
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      attrs: { href: "javascript: void(0)" },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.showMultiple()
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c("img", {
+                                        staticClass: "tmb-tours",
+                                        attrs: {
+                                          src: "../img/tours/" + image_tour.tmb,
+                                          alt: "",
+                                          width: "100%"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              )
+                            }),
+                            0
+                          ),
                           _vm._v(" "),
                           _c("VueEasyLightbox", {
                             attrs: {
@@ -37698,12 +37792,156 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
-        _c("div", { staticClass: "col-3" })
+        _c("div", { staticClass: "col-3 detalles-tour" }, [
+          _c("span", { staticClass: "titulo-detalle" }, [
+            _vm._v("DETALLES DEL TOUR")
+          ]),
+          _vm._v(" "),
+          _c("ul", { staticClass: "list-group list-group-flush" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _vm._m(1),
+            _vm._v(" "),
+            _vm._m(2),
+            _vm._v(" "),
+            _vm._m(3),
+            _vm._v(" "),
+            _c(
+              "li",
+              { staticClass: "list-group-item d-flex justify-content-between" },
+              [
+                _c("span", { staticClass: "primer-texto" }, [
+                  _vm._v("Calificación: ")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  _vm._l(5, function(item) {
+                    return _c("img", {
+                      attrs: {
+                        src: "../img/estrella_on.png",
+                        alt: " estrella activa"
+                      }
+                    })
+                  }),
+                  0
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _vm._m(4),
+            _vm._v(" "),
+            _vm._m(5)
+          ])
+        ])
       ])
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "li",
+      { staticClass: "list-group-item d-flex justify-content-between" },
+      [
+        _c("span", { staticClass: "primer-texto" }, [_vm._v("Tipo tour: ")]),
+        _vm._v(" "),
+        _c("span", { staticClass: "segundo-texto" }, [
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Aventura")])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "li",
+      { staticClass: "list-group-item d-flex justify-content-between" },
+      [
+        _c("span", { staticClass: "primer-texto" }, [_vm._v("Duración: ")]),
+        _vm._v(" "),
+        _c("span", { staticClass: "segundo-texto" }, [
+          _vm._v(
+            "\n                            7 horas\n                        "
+          )
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "li",
+      { staticClass: "list-group-item d-flex justify-content-between" },
+      [
+        _c("span", { staticClass: "primer-texto" }, [
+          _vm._v("Precio Adultos: ")
+        ]),
+        _vm._v(" "),
+        _c("span", { staticClass: "segundo-texto precio" }, [
+          _vm._v(
+            "\n                            $800 \n                        "
+          )
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "li",
+      { staticClass: "list-group-item d-flex justify-content-between" },
+      [
+        _c("span", { staticClass: "primer-texto" }, [_vm._v("Precio niños: ")]),
+        _vm._v(" "),
+        _c("span", { staticClass: "segundo-texto precio" }, [
+          _vm._v(
+            "\n                            $600 \n                        "
+          )
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "li",
+      { staticClass: "list-group-item d-flex justify-content-between" },
+      [
+        _c("a", { staticClass: "efecto-principal", attrs: { href: "#" } }, [
+          _c("i", { staticClass: "fab fa-whatsapp" }),
+          _vm._v(" Solicita información por whatsapp\n                        ")
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "li",
+      { staticClass: "list-group-item d-flex justify-content-between" },
+      [
+        _c("a", { staticClass: "efecto-secundario", attrs: { href: "#" } }, [
+          _c("i", { staticClass: "fas fa-envelope" }),
+          _vm._v(" Solicita información por email\n                        ")
+        ])
+      ]
+    )
+  }
+]
 render._withStripped = true
 
 
@@ -50150,14 +50388,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!*******************************************************!*\
   !*** ./resources/js/components/InfoTourComponent.vue ***!
   \*******************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _InfoTourComponent_vue_vue_type_template_id_444c851c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./InfoTourComponent.vue?vue&type=template&id=444c851c& */ "./resources/js/components/InfoTourComponent.vue?vue&type=template&id=444c851c&");
 /* harmony import */ var _InfoTourComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./InfoTourComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/InfoTourComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _InfoTourComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _InfoTourComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -50187,7 +50426,7 @@ component.options.__file = "resources/js/components/InfoTourComponent.vue"
 /*!********************************************************************************!*\
   !*** ./resources/js/components/InfoTourComponent.vue?vue&type=script&lang=js& ***!
   \********************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

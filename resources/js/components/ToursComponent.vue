@@ -60,9 +60,11 @@
                     // handle error
                     console.log(error);
                 });
+               
+                
             },
             ordenarNombre(){
-                alert('Hola');
+                
                 this.arrayTours =[];
             }
         },

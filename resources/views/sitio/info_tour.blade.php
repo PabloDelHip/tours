@@ -23,7 +23,8 @@
     
     {{-- componente Vue --}}
     <div id="app" class="content">
-        <infotour-component></infotour-component>
+        <infotour-component url_tour="{{$url}}"></infotour-component>
+        
     </div>
 </section>
 

@@ -226,7 +226,7 @@ img.ico-top-categorias
         {
             font-family: "Hind Siliguri", sans-serif;
             font-size: 1.1em;
-            background-color: #24C358;
+            background-color: $verde;
             color: #fff;
             font-weight: 400;
             padding: 3px 12px;
@@ -292,7 +292,7 @@ div.texto-tours-populares
 
     a
     {
-        background-color: #24C358;
+        background-color: $verde;
         padding: 10px;
         color: #fff;
         border-radius: 4px;
@@ -300,7 +300,7 @@ div.texto-tours-populares
         transition: color 0.5s ease-in-out;
         &:hover
         {
-            background-color: #1196DD;
+            background-color: $azul-boton;
         }
         
     }
@@ -311,13 +311,14 @@ div.texto-tours-populares
     background-color: #fff;
     a.active
     {
-        background-color: #1196DD !important;
+        background-color: $azul-boton !important;
     }
 }
 
-a.efecto-principal
+a.efecto-principal,
+a.efecto-secundario
 {
-    background-color: #24C358;
+    background-color: $verde;
     padding: 10px;
     margin: 6px;
     color: #fff;
@@ -326,9 +327,55 @@ a.efecto-principal
     transition: color 0.5s ease-in-out;
     &:hover
     {
-        background-color: #1196DD;
+        background-color: $azul-boton;
     }
 }
+
+a.efecto-secundario
+{
+    background-color: $azul-boton !important;
+    &:hover
+    {
+        background-color: $verde !important;
+    }
+}
+
+img.tmb-tours
+{
+    border-radius: 7px;
+}
+
+.detalles-tour
+{
+    font-family: $fuente-secundaria;
+    padding: 20px;
+    span.titulo-detalle
+    {
+        display: block;
+        text-align: center;
+        font-size: .9em;
+    }
+
+    .list-group-item
+    {
+        background-color: transparent;
+        border-top: 0px !important;
+        
+        span.primer-texto
+        {
+            color: #000;
+        }
+        span.segundo-texto
+        {
+            color: $gris;
+        }
+        span.segundo-texto.precio
+        {
+            color: $verde;
+        }
+    }
+}
+
 
 footer
 {

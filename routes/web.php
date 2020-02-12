@@ -22,5 +22,8 @@ Route::get('{categoria?}/tour-actividades', ['as' => 'infoCategorias', 'uses' =>
 // tours
 Route::get('/tours/{categoria?}', ['as' => 'categoriaTour', 'uses' => 'ToursController@categoriaTour']);
 Route::get('/informacion/{tours?}', ['as' => 'InfomarcionTour', 'uses' => 'ToursController@verInformacionTour']);
+Route::get('/info-tour/{tours?}', ['as' => 'InfomarcionTour', 'uses' => 'ToursController@getInformacionTour']);
+
 // Route::resource('tours', 'ToursController');
 // Route::resource('tours', 'ToursController');
+

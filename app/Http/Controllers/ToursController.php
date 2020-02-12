@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Categorias;
 use App\Tours;
+use App\Imagetours;
 
 class ToursController extends Controller
 {
@@ -84,11 +85,18 @@ class ToursController extends Controller
         //
     }
 
-    // RUTAS VUE///////////////////////////
+    
+    public function verInformacionTour($url)
+    {
+        return view('sitio.info_tour',compact('url'));
+    }
+
+    /////////////////////////////////////////////////////
+    ////////////////RUTAS VUE////////////////////////////
+    /////////////////////////////////////////////////////
     // seleccionar tours dependiendo la categoria
     public function categoriaTour($url)
     {
-        $categoria_tours='';
         $categorias_tours = Categorias::all()
                              ->where('url', '=',$url)
                              ->where('active', '=',true);
@@ -100,8 +108,26 @@ class ToursController extends Controller
         return $tours;
     }
 
-    public function verInformacionTour($url)
+    public function getInformacionTour($url)
     {
-        return view('sitio.info_tour');
+        $info_tour = '';
+        $informacion_tours = Tours::all()
+                             ->where('url', '=',$url)
+                             ->where('active', '=',true);
+        
+        foreach ($informacion_tours as $informacion_tour) {
+            $info_tour =  Tours::findOrFail($informacion_tour->id);
+        }
+        array($info_tour, $info_tour->imagetour);
+        return $info_tour;
+    }
+
+    public function getImageTour($id_tour)
+    {
+        $info_tour = Tours::all()
+                        ->where('url','=',$url)
+                        ->where('active','=',true);
+        return $info_tour;
+        echo $url;
     }
 }
