@@ -28,53 +28,21 @@
                 <h2>Disfruta de las mejores actividades con nosotros</h2>
             </div>
 
-            <div class="col-3 tmb-tours-medianos">
-                <div class="row fondo curva col-12 p-0 m-0 d-flex align-items-end">
-                    <div class="fondo-color"></div>
-                    <img src="{{ url('/img/coba.jpg') }}" alt="">
-                    <div class="col-12 texto">
-                        <img src="{{ url('/img/piramide-azteca.png') }}" alt="">
-                        <a class="categoria" href="#">Arqueologico</a>
-                        <a class="tour" href="#">Coba</a>
-                    </div>
-                </div> 
-            </div>
-
-            <div class="col-3 tmb-tours-medianos">
-                <div class="row fondo curva col-12 p-0 m-0 d-flex align-items-end">
-                    <div class="fondo-color"></div>
-                    <img src="{{ url('/img/coba.jpg') }}" alt="">
-                    <div class="col-12 texto">
-                        <img src="{{ url('/img/piramide-azteca.png') }}" alt="">
-                        <a class="categoria" href="#">Arqueologico</a>
-                        <a class="tour" href="#">Coba</a>
-                    </div>
+            @foreach($tours as $tour)
+                <div class="col-3 tmb-tours-medianos">
+                    <div class="row fondo curva col-12 p-0 m-0 d-flex align-items-end">
+                        <div class="fondo-color"></div>
+                        <img src="{{ url('/img/tours_home/'.$tour->image) }}" alt="">
+                        <div class="col-12 texto">
+                            <img src="{{ url('/img/iconos/'.$tour->categoria->icono) }}" alt="">
+                            <a class="categoria" href="{{route("infoCategorias",['categorie'=> $tour->categoria->url])}}">
+                                {{$tour->categoria->name}}
+                            </a>
+                            <a class="tour" href="#">{{$tour->name}}</a>
+                        </div>
+                    </div> 
                 </div>
-            </div>
-
-            <div class="col-3 tmb-tours-medianos">
-                <div class="row fondo curva col-12 p-0 m-0 d-flex align-items-end">
-                    <div class="fondo-color"></div>
-                    <img src="{{ url('/img/coba.jpg') }}" alt="">
-                    <div class="col-12 texto">
-                        <img src="{{ url('/img/piramide-azteca.png') }}" alt="">
-                        <a class="categoria" href="#">Arqueologico</a>
-                        <a class="tour" href="#">Coba</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-3 tmb-tours-medianos">
-                <div class="row fondo curva col-12 p-0 m-0 d-flex align-items-end">
-                    <div class="fondo-color"></div>
-                    <img src="{{ url('/img/coba.jpg') }}" alt="">
-                    <div class="col-12 texto">
-                        <img src="{{ url('/img/piramide-azteca.png') }}" alt="">
-                        <a class="categoria" href="#">Arqueologico</a>
-                        <a class="tour" href="#">Coba</a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
 
         </div>
     </div>

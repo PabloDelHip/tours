@@ -14,6 +14,11 @@ class Tours extends Model
 
     }
 
+    public function categoria()
+    {
+        return $this->belongsTo(Categorias::class, 'categorie_id');
+    }
+
     public function imagetour()
     {
         return $this->hasMany(Imagetours::class);

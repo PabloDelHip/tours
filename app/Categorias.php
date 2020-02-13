@@ -12,4 +12,9 @@ class Categorias extends Model
     {
         return $this->belongsToMany(Tours::class);
     }
+
+    public function onlyTour()
+    {
+        return $this->hasMany(Tours::class,'categories_id');
+    }
 }
