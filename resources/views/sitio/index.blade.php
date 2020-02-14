@@ -27,18 +27,19 @@
                 <h1>Tours Economicos en Cancún y La Riviera Maya</h1>
                 <h2>Disfruta de las mejores actividades con nosotros</h2>
             </div>
-
-            @foreach($tours as $tour)
+            
+            @foreach($tours_economicos as $tour_economico)
                 <div class="col-3 tmb-tours-medianos">
                     <div class="row fondo curva col-12 p-0 m-0 d-flex align-items-end">
                         <div class="fondo-color"></div>
-                        <img src="{{ url('/img/tours_home/'.$tour->image) }}" alt="">
+                        <img src="{{ url('/img/tours_home/'.$tour_economico->image) }}" alt="">
                         <div class="col-12 texto">
-                            <img src="{{ url('/img/iconos/'.$tour->categoria->icono) }}" alt="">
-                            <a class="categoria" href="{{route("infoCategorias",['categorie'=> $tour->categoria->url])}}">
-                                {{$tour->categoria->name}}
+                            <img src="{{ url('/img/iconos/'.$tour_economico->categoria['icono']) }}" alt="">
+                            
+                            <a class="categoria" href="{{route("infoCategorias",['categoria'=> $tour_economico->categoria['url']])}}">
+                                {{$tour_economico->categoria['name']}}
                             </a>
-                            <a class="tour" href="#">{{$tour->name}}</a>
+                            <a class="tour" href="#">{{$tour_economico->name}}</a>
                         </div>
                     </div> 
                 </div>

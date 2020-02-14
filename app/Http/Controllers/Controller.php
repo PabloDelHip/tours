@@ -7,6 +7,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use App\Tours;
+use App\categorias;
 
 class Controller extends BaseController
 {
@@ -14,12 +15,14 @@ class Controller extends BaseController
 
     public function index()
     {
-        $tours = Tours::all()
-                    ->where('see_home', '=',true)
-                    ->where('active', '=',true);
+        $categorias_populares =  Categorias::findOrFail(4);
+        $categorias_economicos =  Categorias::findOrFail(5);
         
-        
-        return view('sitio.index',compact('tours'));
+        $tours_populares = $categorias_populares->tours;
+        $tours_economicos = $categorias_economicos->tours;
+
+        return view('sitio.index',compact('tours_populares','tours_economicos'));
+    
     }
 
     public function categorias()
