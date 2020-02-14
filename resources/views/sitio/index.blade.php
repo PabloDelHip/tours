@@ -34,7 +34,7 @@
                         <div class="fondo-color"></div>
                         <img src="{{ url('/img/tours_home/'.$tour_economico->image) }}" alt="">
                         <div class="col-12 texto">
-                            <img src="{{ url('/img/iconos/'.$tour_economico->categoria['icono']) }}" alt="">
+                            <img src="{{ url('/img/iconos/'.$tour_economico->categoria['icono']) }}" alt="{{ url('/img/iconos/'.$tour_economico->categoria['icono']) }}">
                             
                             <a class="categoria" href="{{route("infoCategorias",['categoria'=> $tour_economico->categoria['url']])}}">
                                 {{$tour_economico->categoria['name']}}
@@ -64,256 +64,48 @@
                 <div class="col-12 mt-5">
                     <section class="autoplay slider">
                         {{-- contenedor popular --}}
-                        <div>
-                            <div class="tmb-tours-medianos tours-populares">
-                                <div class="row">
-                                    <div class="col-12 ico-tours-populares d-flex justify-content-between">
-                                        <img class="ico-top-categorias" src="{{ url('/img/piramide-azteca.png') }}" alt="">
-                                        <span>$2400</span>
-                                    </div>
-                                </div>
-                                <div class="row fondo col-12 p-0 m-0 d-flex align-items-end">
-                                    <div class="fondo-color"></div>
-                                    <img src="{{ url('/img/coba.jpg') }}" alt="">
-                                    <div class="col-12 texto">
-                                        <a class="categoria" href="#">Arqueologico</a>
-                                        <a class="tour" href="#">Coba</a>
-                                    </div>
-                                </div>
-                                <div class="col-12 texto-tours-populares">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, corrupti nihil, ratione consequuntur debitis asperiores repellat dicta hic</p>
-                                    <div class="row d-flex justify-content-between mt-2">
-                                        <div class="col-6">
-                                            4 horas
+                        @foreach ($tours_populares as $tour_popular)
+                            <div>
+                                <div class="tmb-tours-medianos tours-populares">
+                                    <div class="row">
+                                        <div class="col-12 ico-tours-populares d-flex justify-content-between">
+                                            <img style="width: 32px;" src="{{ url('/img/iconos/'.$tour_popular->categoria['icono']) }}" alt="{{ url('/img/iconos/'.$tour_popular->categoria['icono']) }}">
+                                            <span>${{$tour_popular->adult_discount_price}}</span>
                                         </div>
-                                        <div class="col-6 d-flex justify-content-end">
-                                            <img src="{{ url('/img/estrella_on.png') }}" alt=" estrella activa">
-                                            <img src="{{ url('/img/estrella_on.png') }}" alt=" estrella activa">
-                                            <img src="{{ url('/img/estrella_on.png') }}" alt=" estrella activa">
-                                            <img src="{{ url('/img/estrella_on.png') }}" alt=" estrella activa">
-                                            <img src="{{ url('/img/estrella_off.png') }}" alt=" estrella activa">
+                                    </div>
+                                    <div class="row fondo col-12 p-0 m-0 d-flex align-items-end">
+                                        <div class="fondo-color"></div>
+                                        <img src="{{ url('/img/tours_home/'.$tour_popular->image_normal) }}" alt="">
+                                        <div class="col-12 texto">
+                                            
+                                            <a class="categoria" href="{{route("infoCategorias",['categoria'=> $tour_popular->categoria['url']])}}">
+                                                {{$tour_popular->categoria['name']}}
+                                            </a>
+                                            <a class="tour" href="#">
+                                                {{$tour_popular->name}}
+                                            </a>
                                         </div>
+                                    </div>
+                                    <div class="col-12 texto-tours-populares">
+                                        <p>
+                                            {{$tour_popular->description_corta}}
+                                        </p>
+                                        <div class="row d-flex justify-content-between mt-2">
+                                            <div class="col-6">
+                                                4 horas
+                                            </div>
+                                            <div class="col-6 d-flex justify-content-end">
+                                                @for ($i = 0; $i <= 4; $i++)
+                                                    <img src="{{ url('/img/estrella_on.png') }}" alt=" estrella activa">
+                                                @endfor
+                                            </div>
 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {{-- contenedor popular --}}
-                        <div>
-                            <div class="tmb-tours-medianos tours-populares">
-                                <div class="row">
-                                    <div class="col-12 ico-tours-populares d-flex justify-content-between">
-                                        <img class="ico-top-categorias" src="{{ url('/img/piramide-azteca.png') }}" alt="">
-                                        <span>$2400</span>
-                                    </div>
-                                </div>
-                                <div class="row fondo col-12 p-0 m-0 d-flex align-items-end">
-                                    <div class="fondo-color"></div>
-                                    <img src="{{ url('/img/coba.jpg') }}" alt="">
-                                    <div class="col-12 texto">
-                                        <a class="categoria" href="#">Arqueologico</a>
-                                        <a class="tour" href="#">Coba</a>
-                                    </div>
-                                </div>
-                                <div class="col-12 texto-tours-populares">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, corrupti nihil, ratione consequuntur debitis asperiores repellat dicta hic</p>
-                                    <div class="row d-flex justify-content-between mt-2">
-                                        <div class="col-6">
-                                            4 horas
                                         </div>
-                                        <div class="col-6 d-flex justify-content-end">
-                                            <img src="{{ url('/img/estrella_on.png') }}" alt=" estrella activa">
-                                            <img src="{{ url('/img/estrella_on.png') }}" alt=" estrella activa">
-                                            <img src="{{ url('/img/estrella_on.png') }}" alt=" estrella activa">
-                                            <img src="{{ url('/img/estrella_on.png') }}" alt=" estrella activa">
-                                            <img src="{{ url('/img/estrella_off.png') }}" alt=" estrella activa">
-                                        </div>
-
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-
-                        {{-- contenedor popular --}}
-                        <div>
-                            <div class="tmb-tours-medianos tours-populares">
-                                <div class="row">
-                                    <div class="col-12 ico-tours-populares d-flex justify-content-between">
-                                        <img class="ico-top-categorias" src="{{ url('/img/piramide-azteca.png') }}" alt="">
-                                        <span>$2400</span>
-                                    </div>
-                                </div>
-                                <div class="row fondo col-12 p-0 m-0 d-flex align-items-end">
-                                    <div class="fondo-color"></div>
-                                    <img src="{{ url('/img/coba.jpg') }}" alt="">
-                                    <div class="col-12 texto">
-                                        <a class="categoria" href="#">Arqueologico</a>
-                                        <a class="tour" href="#">Coba</a>
-                                    </div>
-                                </div>
-                                <div class="col-12 texto-tours-populares">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, corrupti nihil, ratione consequuntur debitis asperiores repellat dicta hic</p>
-                                    <div class="row d-flex justify-content-between mt-2">
-                                        <div class="col-6">
-                                            4 horas
-                                        </div>
-                                        <div class="col-6 d-flex justify-content-end">
-                                            <img src="{{ url('/img/estrella_on.png') }}" alt=" estrella activa">
-                                            <img src="{{ url('/img/estrella_on.png') }}" alt=" estrella activa">
-                                            <img src="{{ url('/img/estrella_on.png') }}" alt=" estrella activa">
-                                            <img src="{{ url('/img/estrella_on.png') }}" alt=" estrella activa">
-                                            <img src="{{ url('/img/estrella_off.png') }}" alt=" estrella activa">
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {{-- contenedor popular --}}
-                        <div>
-                            <div class="tmb-tours-medianos tours-populares">
-                                <div class="row">
-                                    <div class="col-12 ico-tours-populares d-flex justify-content-between">
-                                        <img class="ico-top-categorias" src="{{ url('/img/piramide-azteca.png') }}" alt="">
-                                        <span>$2400</span>
-                                    </div>
-                                </div>
-                                <div class="row fondo col-12 p-0 m-0 d-flex align-items-end">
-                                    <div class="fondo-color"></div>
-                                    <img src="{{ url('/img/coba.jpg') }}" alt="">
-                                    <div class="col-12 texto">
-                                        <a class="categoria" href="#">Arqueologico</a>
-                                        <a class="tour" href="#">Coba</a>
-                                    </div>
-                                </div>
-                                <div class="col-12 texto-tours-populares">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, corrupti nihil, ratione consequuntur debitis asperiores repellat dicta hic</p>
-                                    <div class="row d-flex justify-content-between mt-2">
-                                        <div class="col-6">
-                                            4 horas
-                                        </div>
-                                        <div class="col-6 d-flex justify-content-end">
-                                            <img src="{{ url('/img/estrella_on.png') }}" alt=" estrella activa">
-                                            <img src="{{ url('/img/estrella_on.png') }}" alt=" estrella activa">
-                                            <img src="{{ url('/img/estrella_on.png') }}" alt=" estrella activa">
-                                            <img src="{{ url('/img/estrella_on.png') }}" alt=" estrella activa">
-                                            <img src="{{ url('/img/estrella_off.png') }}" alt=" estrella activa">
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {{-- contenedor popular --}}
-                        <div>
-                            <div class="tmb-tours-medianos tours-populares">
-                                <div class="row">
-                                    <div class="col-12 ico-tours-populares d-flex justify-content-between">
-                                        <img class="ico-top-categorias" src="{{ url('/img/piramide-azteca.png') }}" alt="">
-                                        <span>$2400</span>
-                                    </div>
-                                </div>
-                                <div class="row fondo col-12 p-0 m-0 d-flex align-items-end">
-                                    <div class="fondo-color"></div>
-                                    <img src="{{ url('/img/coba.jpg') }}" alt="">
-                                    <div class="col-12 texto">
-                                        <a class="categoria" href="#">Arqueologico</a>
-                                        <a class="tour" href="#">Coba</a>
-                                    </div>
-                                </div>
-                                <div class="col-12 texto-tours-populares">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, corrupti nihil, ratione consequuntur debitis asperiores repellat dicta hic</p>
-                                    <div class="row d-flex justify-content-between mt-2">
-                                        <div class="col-6">
-                                            4 horas
-                                        </div>
-                                        <div class="col-6 d-flex justify-content-end">
-                                            <img src="{{ url('/img/estrella_on.png') }}" alt=" estrella activa">
-                                            <img src="{{ url('/img/estrella_on.png') }}" alt=" estrella activa">
-                                            <img src="{{ url('/img/estrella_on.png') }}" alt=" estrella activa">
-                                            <img src="{{ url('/img/estrella_on.png') }}" alt=" estrella activa">
-                                            <img src="{{ url('/img/estrella_off.png') }}" alt=" estrella activa">
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {{-- contenedor popular --}}
-                        <div>
-                            <div class="tmb-tours-medianos tours-populares">
-                                <div class="row">
-                                    <div class="col-12 ico-tours-populares d-flex justify-content-between">
-                                        <img class="ico-top-categorias" src="{{ url('/img/piramide-azteca.png') }}" alt="">
-                                        <span>$2400</span>
-                                    </div>
-                                </div>
-                                <div class="row fondo col-12 p-0 m-0 d-flex align-items-end">
-                                    <div class="fondo-color"></div>
-                                    <img src="{{ url('/img/coba.jpg') }}" alt="">
-                                    <div class="col-12 texto">
-                                        <a class="categoria" href="#">Arqueologico</a>
-                                        <a class="tour" href="#">Coba</a>
-                                    </div>
-                                </div>
-                                <div class="col-12 texto-tours-populares">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, corrupti nihil, ratione consequuntur debitis asperiores repellat dicta hic</p>
-                                    <div class="row d-flex justify-content-between mt-2">
-                                        <div class="col-6">
-                                            4 horas
-                                        </div>
-                                        <div class="col-6 d-flex justify-content-end">
-                                            <img src="{{ url('/img/estrella_on.png') }}" alt=" estrella activa">
-                                            <img src="{{ url('/img/estrella_on.png') }}" alt=" estrella activa">
-                                            <img src="{{ url('/img/estrella_on.png') }}" alt=" estrella activa">
-                                            <img src="{{ url('/img/estrella_on.png') }}" alt=" estrella activa">
-                                            <img src="{{ url('/img/estrella_off.png') }}" alt=" estrella activa">
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {{-- contenedor popular --}}
-                        <div>
-                            <div class="tmb-tours-medianos tours-populares">
-                                <div class="row">
-                                    <div class="col-12 ico-tours-populares d-flex justify-content-between">
-                                        <img class="ico-top-categorias" src="{{ url('/img/piramide-azteca.png') }}" alt="">
-                                        <span>$2400</span>
-                                    </div>
-                                </div>
-                                <div class="row fondo col-12 p-0 m-0 d-flex align-items-end">
-                                    <div class="fondo-color"></div>
-                                    <img src="{{ url('/img/coba.jpg') }}" alt="">
-                                    <div class="col-12 texto">
-                                        <a class="categoria" href="#">Arqueologico</a>
-                                        <a class="tour" href="#">Coba</a>
-                                    </div>
-                                </div>
-                                <div class="col-12 texto-tours-populares">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, corrupti nihil, ratione consequuntur debitis asperiores repellat dicta hic</p>
-                                    <div class="row d-flex justify-content-between mt-2">
-                                        <div class="col-6">
-                                            4 horas
-                                        </div>
-                                        <div class="col-6 d-flex justify-content-end">
-                                            <img src="{{ url('/img/estrella_on.png') }}" alt=" estrella activa">
-                                            <img src="{{ url('/img/estrella_on.png') }}" alt=" estrella activa">
-                                            <img src="{{ url('/img/estrella_on.png') }}" alt=" estrella activa">
-                                            <img src="{{ url('/img/estrella_on.png') }}" alt=" estrella activa">
-                                            <img src="{{ url('/img/estrella_off.png') }}" alt=" estrella activa">
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            </div>    
+                        @endforeach
+                        
                     </section>
                 </div>
             </div>

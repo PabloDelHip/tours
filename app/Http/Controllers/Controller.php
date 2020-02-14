@@ -20,6 +20,7 @@ class Controller extends BaseController
         
         $tours_populares = $categorias_populares->tours;
         $tours_economicos = $categorias_economicos->tours;
+        
 
         return view('sitio.index',compact('tours_populares','tours_economicos'));
     
