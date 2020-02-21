@@ -77,7 +77,7 @@
         <div class="contenedor-menu">
             <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="{{route("home")}}">
                         <img src="{{ url('/img/logo.png') }}" alt="Logo cancun">
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -90,16 +90,19 @@
                         </ul>
                         <ul class="nav navbar-nav pull-xs-right">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Inicio</a>
+                                <a class="nav-link" href="{{route("home")}}">Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Arqueologicos</a>
+                                <a class="nav-link" href="{{route("infoCategorias",['tour'=> 'riviera-maya'])}}">Riviera Maya</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Aventuras</a>
+                                <a class="nav-link" href="{{route("infoCategorias",['tour'=> 'aventura'])}}">Aventuras</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Nosotros</a>
+                                <a class="nav-link" href="{{route("infoCategorias",['tour'=> 'acuticos'])}}">Acuaticos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route("infoCategorias",['tour'=> 'experiencias-xcaret'])}}">Xcaret</a>
                             </li>
                             {{-- <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

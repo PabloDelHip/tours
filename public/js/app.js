@@ -2164,14 +2164,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['categoria'],
   data: function data() {
     return {
       arrayTours: [],
-      urlCategoria: this.categoria
+      urlCategoria: this.categoria,
+      icono: ''
     };
   },
   methods: {
@@ -2181,7 +2181,9 @@ __webpack_require__.r(__webpack_exports__);
       var url = '/tours/public/tours/' + categoria;
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(url).then(function (response) {
         //creamos un array y guardamos el contenido que nos devuelve el response
-        me.arrayTours = response.data;
+        me.arrayTours = response.data.tours;
+        me.icono = response.data.icono;
+        console.log(me.arrayTours);
       })["catch"](function (error) {
         // handle error
         console.log(error);
@@ -37744,7 +37746,10 @@ var render = function() {
                             _vm._l(_vm.array_img_tours, function(image_tour) {
                               return _c(
                                 "div",
-                                { key: image_tour.id, staticClass: "col-4" },
+                                {
+                                  key: image_tour.id,
+                                  staticClass: "col-4 mb-4"
+                                },
                                 [
                                   _c(
                                     "a",
@@ -37964,18 +37969,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("section", [
-    _c(
-      "button",
-      {
-        on: {
-          click: function($event) {
-            return _vm.ordenarNombre()
-          }
-        }
-      },
-      [_vm._v("Nombre")]
-    ),
-    _vm._v(" "),
     _c("div", { staticClass: "container" }, [
       _c(
         "div",
@@ -37992,7 +37985,7 @@ var render = function() {
                 [
                   _c("img", {
                     staticClass: "ico-top-categorias",
-                    attrs: { src: "../img/piramide-azteca.png", alt: "" }
+                    attrs: { src: "../img/iconos/" + _vm.icono, alt: "" }
                   }),
                   _vm._v(" "),
                   _c("span", {
@@ -38007,23 +38000,23 @@ var render = function() {
             _c(
               "div",
               {
-                staticClass: "row fondo col-12 p-0 m-0 d-flex align-items-end"
+                staticClass: "row fondo col-12 p-0 m-0 d-flex align-items-end",
+                staticStyle: { height: "198px" }
               },
               [
                 _c("div", { staticClass: "fondo-color" }),
                 _vm._v(" "),
-                _c("img", { attrs: { src: "../img/coba.jpg", alt: "" } }),
+                _c("img", {
+                  attrs: {
+                    src: "../img/tours_home/" + tour.image_normal,
+                    alt: ""
+                  }
+                }),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-12 texto" }, [
                   _c("a", {
-                    staticClass: "categoria",
-                    attrs: { href: "#" },
-                    domProps: { textContent: _vm._s(_vm.categoria) }
-                  }),
-                  _vm._v(" "),
-                  _c("a", {
                     staticClass: "tour",
-                    attrs: { href: "#" },
+                    attrs: { href: "/tours/public/informacion/" + tour.url },
                     domProps: { textContent: _vm._s(tour.name) }
                   })
                 ])
@@ -38031,7 +38024,9 @@ var render = function() {
             ),
             _vm._v(" "),
             _c("div", { staticClass: "col-12 texto-tours-populares" }, [
-              _c("div", { domProps: { innerHTML: _vm._s(tour.description) } }),
+              _c("div", {
+                domProps: { innerHTML: _vm._s(tour.meta_description) }
+              }),
               _vm._v(" "),
               _c(
                 "div",
@@ -50388,15 +50383,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!*******************************************************!*\
   !*** ./resources/js/components/InfoTourComponent.vue ***!
   \*******************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _InfoTourComponent_vue_vue_type_template_id_444c851c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./InfoTourComponent.vue?vue&type=template&id=444c851c& */ "./resources/js/components/InfoTourComponent.vue?vue&type=template&id=444c851c&");
 /* harmony import */ var _InfoTourComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./InfoTourComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/InfoTourComponent.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _InfoTourComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _InfoTourComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -50426,7 +50420,7 @@ component.options.__file = "resources/js/components/InfoTourComponent.vue"
 /*!********************************************************************************!*\
   !*** ./resources/js/components/InfoTourComponent.vue?vue&type=script&lang=js& ***!
   \********************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

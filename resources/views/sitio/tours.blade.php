@@ -35,7 +35,7 @@
     
     {{-- componente Vue --}}
     <div id="app" class="content">
-        <tours-component categoria="riviera-maya"></tours-component>
+        <tours-component categoria="{{$tour}}"></tours-component>
     </div>
 </section>
 

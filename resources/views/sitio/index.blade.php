@@ -24,12 +24,14 @@
     <div class="container mt-5 top-tours">
         <div class="row">
             <div class="col-12 text-center mb-4">
-                <h1>Tours Economicos en Cancún y La Riviera Maya</h1>
-                <h2>Disfruta de las mejores actividades con nosotros</h2>
+                <h1>Tours Mas Populares En Cancún y la Riviera Maya</h1>
+                <h2>Disfrutar de los Mejores tours y aventuras</h2>
+
+                
             </div>
             
             @foreach($tours_economicos as $tour_economico)
-                <div class="col-3 tmb-tours-medianos">
+                <div class="col-3 tmb-tours-medianos mb-4">
                     <div class="row fondo curva col-12 p-0 m-0 d-flex align-items-end">
                         <div class="fondo-color"></div>
                         <img src="{{ url('/img/tours_home/'.$tour_economico->image) }}" alt="">
@@ -39,7 +41,7 @@
                             <a class="categoria" href="{{route("infoCategorias",['categoria'=> $tour_economico->categoria['url']])}}">
                                 {{$tour_economico->categoria['name']}}
                             </a>
-                            <a class="tour" href="#">{{$tour_economico->name}}</a>
+                            <a class="tour" href="{{route("InfomarcionTour",['tour'=> $tour_economico->url])}}">{{$tour_economico->name}}</a>
                         </div>
                     </div> 
                 </div>
@@ -55,10 +57,10 @@
         <div class="container mt-5">
             <div class="row">
                 <div class="col-12 text-center">
-                    <h3 class="titulo">Tours Mas Populares En Cancún y la Riviera Maya</h3>
+                    <h3 class="titulo">Tours Economicos en Cancún y La Riviera Maya</h3>
                 </div>
                 <div class="col-12 text-center">
-                    <h3 class="texto-secundario">Disfrutar de los Mejores tours y aventuras</h3>
+                    <h3 class="texto-secundario">Disfruta de las mejores actividades con nosotros</h3>
                 </div>
 
                 <div class="col-12 mt-5">
@@ -78,17 +80,17 @@
                                         <img src="{{ url('/img/tours_home/'.$tour_popular->image_normal) }}" alt="">
                                         <div class="col-12 texto">
                                             
-                                            <a class="categoria" href="{{route("infoCategorias",['categoria'=> $tour_popular->categoria['url']])}}">
+                                            <a class="categoria" href="{{route("infoCategorias",['categoria'=> $tour_popular->url])}}">
                                                 {{$tour_popular->categoria['name']}}
                                             </a>
-                                            <a class="tour" href="#">
+                                            <a class="tour" href="{{route("InfomarcionTour",['tour'=> $tour_popular->url])}}">
                                                 {{$tour_popular->name}}
                                             </a>
                                         </div>
                                     </div>
                                     <div class="col-12 texto-tours-populares">
                                         <p>
-                                            {{$tour_popular->description_corta}}
+                                            {{$tour_popular->meta_description}}
                                         </p>
                                         <div class="row d-flex justify-content-between mt-2">
                                             <div class="col-6">
@@ -122,93 +124,18 @@
                 <h2>Explora las diferentes aventuras que te ofrece Cancún y La Riviera Maya</h2>
             </div>
 
-            <div class="col-3 tmb-tours-medianos mt-4">
-                <div class="row fondo curva categorias col-12 p-0 m-0 d-flex align-items-end">
-                    <div class="fondo-color"></div>
-                    <img src="{{ url('/img/coba.jpg') }}" alt="">
-                    <div class="col-12 texto">
-                        <img src="{{ url('/img/piramide-azteca.png') }}" alt="">
-                        <a class="categoria" href="#">Arqueologicos</a>
+            @foreach ($categorias as $categoria)
+                <div class="col-3 tmb-tours-medianos mt-4">
+                    <div class="row fondo curva categorias col-12 p-0 m-0 d-flex align-items-end">
+                        <div class="fondo-color"></div>
+                        <img src="{{ url('/img/categorias/'.$categoria->image) }}" alt="">
+                        <div class="col-12 texto">
+                            <img src="{{ url('/img/iconos/'.$categoria->icono) }}" alt="">
+                            <a class="categoria" href="{{route("infoCategorias",['categoria'=> $categoria->url])}}">{{$categoria->name}}</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-3 tmb-tours-medianos mt-4">
-                <div class="row fondo curva categorias col-12 p-0 m-0 d-flex align-items-end">
-                    <div class="fondo-color"></div>
-                    <img src="{{ url('/img/coba.jpg') }}" alt="">
-                    <div class="col-12 texto">
-                        <img src="{{ url('/img/piramide-azteca.png') }}" alt="">
-                        <a class="categoria" href="#">Arqueologicos</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-3 tmb-tours-medianos mt-4">
-                <div class="row fondo curva categorias col-12 p-0 m-0 d-flex align-items-end">
-                    <div class="fondo-color"></div>
-                    <img src="{{ url('/img/coba.jpg') }}" alt="">
-                    <div class="col-12 texto">
-                        <img src="{{ url('/img/piramide-azteca.png') }}" alt="">
-                        <a class="categoria" href="#">Arqueologicos</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-3 tmb-tours-medianos mt-4">
-                <div class="row fondo curva categorias col-12 p-0 m-0 d-flex align-items-end">
-                    <div class="fondo-color"></div>
-                    <img src="{{ url('/img/coba.jpg') }}" alt="">
-                    <div class="col-12 texto">
-                        <img src="{{ url('/img/piramide-azteca.png') }}" alt="">
-                        <a class="categoria" href="#">Arqueologicos</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-3 tmb-tours-medianos mt-4">
-                <div class="row fondo curva categorias col-12 p-0 m-0 d-flex align-items-end">
-                    <div class="fondo-color"></div>
-                    <img src="{{ url('/img/coba.jpg') }}" alt="">
-                    <div class="col-12 texto">
-                        <img src="{{ url('/img/piramide-azteca.png') }}" alt="">
-                        <a class="categoria" href="#">Arqueologicos</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-3 tmb-tours-medianos mt-4">
-                <div class="row fondo curva categorias col-12 p-0 m-0 d-flex align-items-end">
-                    <div class="fondo-color"></div>
-                    <img src="{{ url('/img/coba.jpg') }}" alt="">
-                    <div class="col-12 texto">
-                        <img src="{{ url('/img/piramide-azteca.png') }}" alt="">
-                        <a class="categoria" href="#">Arqueologicos</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-3 tmb-tours-medianos mt-4">
-                <div class="row fondo curva categorias col-12 p-0 m-0 d-flex align-items-end">
-                    <div class="fondo-color"></div>
-                    <img src="{{ url('/img/coba.jpg') }}" alt="">
-                    <div class="col-12 texto">
-                        <img src="{{ url('/img/piramide-azteca.png') }}" alt="">
-                        <a class="categoria" href="#">Arqueologicos</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-3 tmb-tours-medianos mt-4">
-                <div class="row fondo curva categorias col-12 p-0 m-0 d-flex align-items-end">
-                    <div class="fondo-color"></div>
-                    <img src="{{ url('/img/coba.jpg') }}" alt="">
-                    <div class="col-12 texto">
-                        <img src="{{ url('/img/piramide-azteca.png') }}" alt="">
-                        <a class="categoria" href="#">Arqueologicos</a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
 
         </div>
     </div>

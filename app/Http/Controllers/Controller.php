@@ -21,13 +21,16 @@ class Controller extends BaseController
         $tours_populares = $categorias_populares->tours;
         $tours_economicos = $categorias_economicos->tours;
         
+        $categorias = Categorias::all()
+                        ->where('see_home', '=',true)
+                        ->where('active', '=',true);
 
-        return view('sitio.index',compact('tours_populares','tours_economicos'));
+        return view('sitio.index',compact('tours_populares','tours_economicos','categorias'));
     
     }
 
-    public function categorias()
+    public function categorias($tour)
     {
-        return view('sitio.tours');
+        return view('sitio.tours',compact('tour'));
     }
 }

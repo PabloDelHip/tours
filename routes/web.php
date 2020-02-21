@@ -15,14 +15,14 @@
 //     return view('welcome');
 // });
 
-Route::get('/', ['as' => '/', 'uses' => 'Controller@index']);
+Route::get('/', ['as' => 'home', 'uses' => 'Controller@index']);
 Route::get('{categoria?}/tour-actividades', ['as' => 'infoCategorias', 'uses' => 'Controller@categorias']);
 
 //rutas vue
-// tours
+// tours 
 Route::get('/tours/{categoria?}', ['as' => 'categoriaTour', 'uses' => 'ToursController@categoriaTour']);
-Route::get('/informacion/{tours?}', ['as' => 'InfomarcionTour', 'uses' => 'ToursController@verInformacionTour']);
-Route::get('/info-tour/{tours?}', ['as' => 'InfomarcionTour', 'uses' => 'ToursController@getInformacionTour']);
+Route::get('/informacion/{tour?}', ['as' => 'InfomarcionTour', 'uses' => 'ToursController@verInformacionTour']);
+Route::get('/info-tour/{tours?}', ['as' => 'InfoTour', 'uses' => 'ToursController@getInformacionTour']);
 
 // Route::resource('tours', 'ToursController');
 // Route::resource('tours', 'ToursController');

@@ -104,8 +104,13 @@ class ToursController extends Controller
         foreach ($categorias_tours as $categoria) {
             $categoria_tours =  Categorias::findOrFail($categoria->id);
         }
-        $tours = $categoria_tours->tours;
-        return $tours;
+        // $tours = $categoria_tours->tours;
+        array($categoria_tours,$categoria_tours->tours);
+        return $categoria_tours;
+
+        // $tours = $categoria_tours->tours;
+        // $_tours = array($categorias_tours, "tours" => $tours);
+        // return $_tours;
     }
 
     public function getInformacionTour($url)

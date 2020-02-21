@@ -28,7 +28,7 @@
                             <div v-if="ver==3" :key="3">
                                 
                                 <div class="row">
-                                    <div class="col-4" v-for="image_tour in array_img_tours" :key="image_tour.id">
+                                    <div class="col-4 mb-4" v-for="image_tour in array_img_tours" :key="image_tour.id">
                                         <a href="javascript: void(0)" @click="showMultiple()">
                                             <img class="tmb-tours" :src="`../img/tours/${image_tour.tmb}`" alt="" width="100%">
                                         </a>     
